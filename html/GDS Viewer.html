@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>GDS Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            font-size: 12px;
+        }
+
+        .textShadow {
+            text-shadow:
+            -1px -1px 0 #202020,
+             0   -1px 0 #202020,
+             1px -1px 0 #202020,
+             1px  0   0 #202020,
+             1px  1px 0 #202020,
+             0    1px 0 #202020,
+            -1px  1px 0 #202020,
+            -1px  0   0 #202020;
+        }
+        
+        #loadingStatus {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: medium;
+            color: white;
+            font-weight: bold;
+        }
+
+        #crossSection {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        #instanceClassTitle {
+            font-size: large;
+        }
+
+        #information {
+            font-size: small;
+        }
+
+        .lil-gui {
+            --background-color: #181818;
+            --width: 300px;
+        }
+
+        .selection_link a {
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Ensuring Controls have the highest z-index */
+        .root.autoPlace .title {
+            z-index: 10;
+        }
+        
+        .root.autoPlace .children .title {
+            z-index: 9;
+        }
+    </style>
+    <script type="module" crossorigin="anonymous" src="./GDS Viewer_files/index.53579e02.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.title').forEach((title) => {
+                title.addEventListener('click', () => {
+                    const parent = title.parentElement;
+                    const children = parent.querySelector('.children');
+                    if (parent.classList.contains('closed')) {
+                        parent.classList.remove('closed');
+                        title.setAttribute('aria-expanded', 'true');
+                        children.style.display = 'block';
+                    } else {
+                        parent.classList.add('closed');
+                        title.setAttribute('aria-expanded', 'false');
+                        children.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="loadingStatus">LOADING...</div>
+    <div id="crossSection" hidden>
+        <canvas data-engine="three.js r161" id="SECTION_RENDERER" width="400" height="400"></canvas>
+    </div>
+    <div style="position: absolute; color:white; left: 5px; top: 5px;">
+        <div id="instanceClassTitle" class="textShadow">Loading......</div>
+        <div id="information" class="textShadow"></div>
+        <div class="textShadow">
+            <br>KEYS
+            <br>1: Hide Fill, Decap, Tap cells
+            <br>2: Hide top cell geometry
+            <br>3: Isolate selection / back
+            <br>4: Zoom to selection
+        </div>
+    </div>
+    <div class="lil-gui allow-touch-styles root autoPlace">
+        <div class="title" role="button" aria-expanded="true" tabindex="0">Controls</div>
+        <div class="children">
+            <div class="lil-gui allow-touch-styles">
+                <div class="title" role="button" aria-expanded="true" tabindex="0">View Settings</div>
+                <div class="children">
+                    <div class="controller function disabled">
+                        <div class="widget">
+                            <button disabled="">
+                                <div class="name" id="lil-gui-name-1">Isolate selection / Back</div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="controller function disabled">
+                        <div class="widget">
+                            <button disabled="">
+                                <div class="name" id="lil-gui-name-2">Zoom selection</div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="controller boolean">
+                        <div class="name" id="lil-gui-name-3">Filler cells</div>
+                        <label class="widget"><input type="checkbox" aria-labelledby="lil-gui-name-3"></label>
+                    </div>
+                    <div class="controller boolean">
+                        <div class="name" id="lil-gui-name-4">Top cell geometry</div>
+                        <label class="widget"><input type="checkbox" aria-labelledby="lil-gui-name-4"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="lil-gui allow-touch-styles">
+                <div class="title" role="button" aria-expanded="true" tabindex="0">Layers</div>
+                <div class="children">
+                    <div class="controller boolean">
+                        <div class="name" id="lil-gui-name-38">ALL</div>
+                        <label class="widget"><input type="checkbox" aria-labelledby="lil-gui-name-38"></label>
+                    </div>
+                    <div class="controller boolean" style="border-left: 5px solid rgb(51, 51, 51);">
+                        <div class="name" id="lil-gui-name-39">substrate</div>
+                        <label class="widget"><input type="checkbox" aria-labelledby="lil-gui-name-39"></label>
+                    </div>
+                    <!-- More layers here -->
+                </div>
+            </div>
+            <!-- More GUI controls here -->
+        </div>
+    </div>
+</body>
+</html>
