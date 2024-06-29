@@ -3,6 +3,7 @@ REM Check if Python is installed
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo Python is not installed. Please install Python and try again.
+    pause
     exit /b
 )
 
@@ -10,6 +11,7 @@ REM Check if http.server module is available
 python -c "import http.server" >nul 2>&1
 if %errorlevel% neq 0 (
     echo http.server module is not available. Please install Python and try again.
+    pause
     exit /b
 )
 
@@ -19,6 +21,7 @@ cd /d "%~dp0"
 REM Start the HTTP server and redirect its output to nul
 echo Starting HTTP server on port 8001...
 start /b cmd /c "python -m http.server 8001 >nul 2>&1"
+echo HTTP server started.
 
 :main
 REM Prompt the user to enter the .gltf file name
@@ -27,9 +30,7 @@ set /p gltf_file=
 
 REM Check if the user wants to quit
 if /i "%gltf_file%"=="q" (
-    echo Exiting...
     exit /b
-    exit
 )
 
 REM Remove surrounding quotes if the user dragged and dropped the file
