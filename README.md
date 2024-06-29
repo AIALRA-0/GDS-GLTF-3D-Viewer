@@ -19,21 +19,4 @@ Special thanks to [fiumad](https://github.com/fiumad/) for providing the ideas a
 3. **Run `VIEW GLTF.bat`**:
    - This script allows you to view the `.gltf` model. Press `q` to exit the viewer.
 
-## Example Usage
-
-1. Open a terminal and navigate to the project directory.
-2. Execute the installation script:
-   ```bash
-   ENV INSTALL.bat
-   ```
-3. Convert your GDS file to GLTF:
-   ```bash
-   GDSII2GLTF.bat your_file.gds
-   ```
-4. View the GLTF model:
-   ```bash
-   VIEW GLTF.bat your_file.gltf
-   ```
-5. Press `q` to quit the viewer.
-
 By following these steps, you can easily convert and visualize your GDSII files in a GLTF format.
