@@ -33,8 +33,7 @@ wsl --set-default-version 2
 wsl python3 -m pip --version >nul 2>&1
 if errorlevel 1 (
     echo pip is not installed. Installing pip...
-    wsl sudo apt update
-    wsl sudo apt install -y python3-pip
+    wsl -u root sh -c "apt update && apt install -y python3-pip"
 )
 
 :: Check if requirements.txt exists
