@@ -6,17 +6,31 @@ Special thanks to [fiumad](https://github.com/fiumad/) for providing the ideas a
 
 ## Requirements
 
-- A Windows environment that supports WSL (Windows Subsystem for Linux).
+- A Windows environment that supports WSL (Windows Subsystem for Linux) or a Linux environment.
+- Or Linux
 
 ## Installation and Usage
 
-1. **Run `ENV INSTALL.bat`**:
+### Windows
+
+1. **Run `ENV_INSTALL.bat`**:
    - This script will install WSL and the required Python environment.
 
 2. **Run `GDSII2GLTF.bat`**:
    - Use this script to convert your `.gds` files into `.gltf` models.
 
-3. **Run `VIEW GLTF.bat`**:
+3. **Run `VIEW_GLTF.bat`**:
+   - This script allows you to view the `.gltf` model. Press `q` to exit the viewer.
+
+### Linux
+
+1. **Run `ENV_INSTALL.sh`**:
+   - This script will install the required Python environment.
+
+2. **Run `GDSII2GLTF.sh`**:
+   - Use this script to convert your `.gds` files into `.gltf` models.
+
+3. **Run `VIEW_GLTF.sh`**:
    - This script allows you to view the `.gltf` model. Press `q` to exit the viewer.
 
 By following these steps, you can easily convert and visualize your GDSII files in a GLTF format.
