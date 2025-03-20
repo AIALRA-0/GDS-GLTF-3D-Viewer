@@ -2,11 +2,11 @@
 
 This project provides a set of scripts to convert GDSII files to GLTF models and view them, inspired by the functionality of [TinyTapeout GDS Viewer](https://gds-viewer.tinytapeout.com/?model=) and [GDS2glTF](https://github.com/mbalestrini/GDS2glTF).
 
+Special thanks to [fiumad](https://github.com/fiumad/) for providing the ideas and inspiration.
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/0fe8e64f-c1f9-4bfe-b946-47070fe89892" width="800">
 </p>
-
-Special thanks to [fiumad](https://github.com/fiumad/) for providing the ideas and inspiration.
 
 ## Requirements
 
